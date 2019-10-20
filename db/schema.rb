@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_210401) do
   create_table "camps", force: :cascade do |t|
     t.string "name"
     t.integer "price"
+    t.integer "city_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_camps_on_name"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_210401) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.integer "region_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_cities_on_name"
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_210401) do
 
   create_table "regions", force: :cascade do |t|
     t.string "name"
+    t.integer "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_regions_on_name"

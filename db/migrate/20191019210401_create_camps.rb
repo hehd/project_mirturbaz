@@ -3,6 +3,7 @@ class CreateCamps < ActiveRecord::Migration[6.0]
     create_table :camps do |t|
       t.string :name
       t.integer :price
+      t.integer :city_id
       t.timestamps
     end
     add_index :camps, :name
