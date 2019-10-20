@@ -1,0 +1,19 @@
+<h2>Страны</h2>
+<% if @country.empty? %>
+  <b>Стран пока нет</b>
+<% else %>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @country.each do |i| %>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= link_to i.name, country_path(i) %></td>
+        <td><%= link_to "Удалить", country_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
+      </tr>
+    <% end %>
+<% end %>
+</table>
