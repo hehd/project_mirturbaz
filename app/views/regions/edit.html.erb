@@ -1,0 +1,9 @@
+<h1>Edit region</h1>
+
+<%= form_for @region do |f| %>
+
+  <p>Название региона: <br/><%= f.text_field :name %></p>
+
+  <p> <%= f.submit "Сохранить регион" %></p>
+
+<% end %>
