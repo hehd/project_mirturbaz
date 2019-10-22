@@ -1,0 +1,9 @@
+<h1>Edit camp</h1>
+
+<%= form_with model: @camp do |f| %>
+
+  <%= f.collection_select :city_id, City.all, :id, :name %>
+  <p>Название турбазы: <br/><%= f.text_field :name %></p>
+  <p> <%= f.submit "Сохранить турбазу" %></p>
+
+<% end %>

@@ -1,0 +1,21 @@
+<h2>Турбазы</h2>
+<% if @camp.empty? %>
+  <b>Турбаз пока нет</b>
+<% else %>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @camp.each do |i| %>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= link_to i.name, camp_path(i) %></td>
+        <td><%= link_to "изменить", edit_camp_path(i) %></td>
+        <td><%= link_to "Удалить", camp_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
+      </tr>
+    <% end %>
+<% end %>
+</table>
+<%= link_to "Добавить турбазу", new_camp_path() %>
