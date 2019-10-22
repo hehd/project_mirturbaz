@@ -1,9 +1,8 @@
 <h1>Create new country</h1>
 
-<%= form_for @country do |f| %>
+<%= form_with model: @country do |f| %>
 
   <p>Название страны: <br/><%= f.text_field :name %></p>
-
   <p> <%= f.submit "Добавить страну" %></p>
 
 <% end %>

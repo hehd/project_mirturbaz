@@ -1,9 +1,9 @@
 <h1>Edit region</h1>
 
-<%= form_for @region do |f| %>
+<%= form_with model: @region do |f| %>
 
+  <%= f.collection_select :country_id, Country.all, :id, :name %>
   <p>Название региона: <br/><%= f.text_field :name %></p>
-
   <p> <%= f.submit "Сохранить регион" %></p>
 
 <% end %>

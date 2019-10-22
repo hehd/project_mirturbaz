@@ -12,8 +12,10 @@
       <tr>
         <td><%= i.id %></td>
         <td><%= link_to i.name, region_path(i) %></td>
+        <td><%= link_to "Изменить", edit_region_path(i) %></td>
         <td><%= link_to "Удалить", region_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
       </tr>
     <% end %>
 <% end %>
 </table>
+<%= link_to "Добавить регион", new_region_path() %>
