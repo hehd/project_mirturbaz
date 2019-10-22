@@ -1,0 +1,9 @@
+<h1>Create new city</h1>
+
+<%= form_with model: @city do |f| %>
+
+  <%= f.collection_select :region_id, Region.all, :id, :name %>
+  <p>Название города: <br/><%= f.text_field :name %></p>
+  <p> <%= f.submit "Добавить город" %></p>
+
+<% end %>
