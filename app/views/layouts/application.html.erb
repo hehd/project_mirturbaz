@@ -10,6 +10,33 @@
   </head>
 
   <body>
-  <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Главная", main_index_path(), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Страны", countries_path(), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Регионы", regions_path(), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Города", cities_path(), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Турбазы", camps_path(), class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
