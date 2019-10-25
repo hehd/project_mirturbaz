@@ -2,20 +2,19 @@
 <% if @city.empty? %>
   <b>Городов пока нет</b>
 <% else %>
-  <table>
+  <table class="table table-sm table-hover">
     <tr>
-      <th>id</th>
-      <th>Name</th>
+      <th scope="col">Name</th>
+      <th></th>
       <th></th>
     </tr>
     <% @city.each do |i| %>
     <tr data-path="<%= city_path(i) %>">
-      <td><%= i.id %></td>
       <td><%= link_to i.name, city_path(i) %></td>
-      <td><%= link_to "изменить", edit_city_path(i) %></td>
-      <td><span class="deleteAction">Удалить</span></td>
+      <td><%= link_to "изменить", edit_city_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
+      <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
     </tr>
     <% end %>
 <% end %>
 </table>
-<%= link_to "Добавить город", new_city_path() %>
+<%= link_to "Добавить город", new_city_path(), class: "btn btn-outline-primary btn-sm" %>

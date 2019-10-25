@@ -1,9 +1,11 @@
-<h1>Create new camp</h1>
+<h3>Добавление новой турбазы</h3>
 
 <%= form_with model: @camp do |f| %>
 
+  <p> Выберите город: <br/>
   <%= f.collection_select :city_id, City.all, :id, :name %>
+  </p>
   <p>Название турбазы: <br/><%= f.text_field :name %></p>
-  <p> <%= f.submit "Добавить турбазы" %></p>
+  <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
 
 <% end %>

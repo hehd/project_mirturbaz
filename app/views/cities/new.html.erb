@@ -1,9 +1,11 @@
-<h1>Create new city</h1>
+<h3>Добавление новго города</h3>
 
 <%= form_with model: @city do |f| %>
 
+  <p> Выберите регион: <br/>
   <%= f.collection_select :region_id, Region.all, :id, :name %>
+  </p>
   <p>Название города: <br/><%= f.text_field :name %></p>
-  <p> <%= f.submit "Добавить город" %></p>
+  <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
 
 <% end %>

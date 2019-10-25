@@ -2,20 +2,19 @@
 <% if @region.empty? %>
   <b>Регионов пока нет</b>
 <% else %>
-  <table>
+  <table class="table table-sm table-hover">
     <tr>
-      <th>id</th>
-      <th>Name</th>
-      <th></th>
+      <th scope="col">Name</th>
+      <th ></th>
+      <th ></th>
     </tr>
     <% @region.each do |i| %>
       <tr data-path="<%= region_path(i) %>">
-        <td><%= i.id %></td>
         <td><%= link_to i.name, region_path(i) %></td>
-        <td><%= link_to "Изменить", edit_region_path(i) %></td>
-        <td><span class="deleteAction">Удалить</span></td>
+        <td><%= link_to "Изменить", edit_region_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
+        <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
       </tr>
     <% end %>
 <% end %>
 </table>
-<%= link_to "Добавить регион", new_region_path() %>
+<%= link_to "Добавить регион", new_region_path(), class: "btn btn-outline-primary btn-sm" %>
