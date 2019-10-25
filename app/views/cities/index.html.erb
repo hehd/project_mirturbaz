@@ -9,12 +9,12 @@
       <th></th>
     </tr>
     <% @city.each do |i| %>
-      <tr>
-        <td><%= i.id %></td>
-        <td><%= link_to i.name, city_path(i) %></td>
-        <td><%= link_to "изменить", edit_city_path(i) %></td>
-        <td><%= link_to "Удалить", city_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
-      </tr>
+    <tr data-path="<%= city_path(i) %>">
+      <td><%= i.id %></td>
+      <td><%= link_to i.name, city_path(i) %></td>
+      <td><%= link_to "изменить", edit_city_path(i) %></td>
+      <td><span class="deleteAction">Удалить</span></td>
+    </tr>
     <% end %>
 <% end %>
 </table>

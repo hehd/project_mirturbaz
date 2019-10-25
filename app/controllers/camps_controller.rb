@@ -37,7 +37,7 @@ class CampsController < ApplicationController
 
   def destroy
     @camp.destroy
-    redirect_to action: "index"
+    render json: { success: true }
   end
 
   private

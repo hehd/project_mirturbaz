@@ -9,11 +9,11 @@
       <th></th>
     </tr>
     <% @region.each do |i| %>
-      <tr>
+      <tr data-path="<%= region_path(i) %>">
         <td><%= i.id %></td>
         <td><%= link_to i.name, region_path(i) %></td>
         <td><%= link_to "Изменить", edit_region_path(i) %></td>
-        <td><%= link_to "Удалить", region_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
+        <td><span class="deleteAction">Удалить</span></td>
       </tr>
     <% end %>
 <% end %>

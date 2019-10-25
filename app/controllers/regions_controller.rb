@@ -37,7 +37,7 @@ class RegionsController < ApplicationController
 
   def destroy
     @region.destroy
-    redirect_to action: "index"
+    render json: { success: true }
   end
 
   private

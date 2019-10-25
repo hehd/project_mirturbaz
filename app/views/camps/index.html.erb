@@ -9,11 +9,11 @@
       <th></th>
     </tr>
     <% @camp.each do |i| %>
-      <tr>
+      <tr data-path="<%= camp_path(i) %>">
         <td><%= i.id %></td>
         <td><%= link_to i.name, camp_path(i) %></td>
         <td><%= link_to "изменить", edit_camp_path(i) %></td>
-        <td><%= link_to "Удалить", camp_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
+        <td><span class="deleteAction">Удалить</span></td>
       </tr>
     <% end %>
 <% end %>

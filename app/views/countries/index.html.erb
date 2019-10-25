@@ -9,11 +9,11 @@
       <th></th>
     </tr>
     <% @country.each do |i| %>
-      <tr>
+      <tr data-path="<%= country_path(i) %>">
         <td><%= i.id %></td>
         <td><%= link_to i.name, country_path(i) %></td>
         <td><%= link_to "изменить", edit_country_path(i) %></td>
-        <td><%= link_to "Удалить", country_path(i), method: :delete, data: { confirm: "Точно удалить?"} %></td>
+        <td><span class="deleteAction">Удалить</span></td>
       </tr>
     <% end %>
 <% end %>
