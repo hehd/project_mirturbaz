@@ -18,16 +18,16 @@
               <%= link_to "Главная", main_index_path(), class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Страны", countries_path(), class: "nav-link" %>
+              <%= link_to "Страны", countries_path(), data: {turbolinks: false}, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Регионы", regions_path(), class: "nav-link" %>
+              <%= link_to "Регионы", regions_path(), data: {turbolinks: false}, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Города", cities_path(), class: "nav-link" %>
+              <%= link_to "Города", cities_path(), data: {turbolinks: false}, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Турбазы", camps_path(), class: "nav-link" %>
+              <%= link_to "Турбазы", camps_path(), data: {turbolinks: false}, class: "nav-link" %>
             </li>
           </ul>
         </div>
