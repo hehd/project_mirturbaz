@@ -3,7 +3,7 @@
 <%= form_with model: @city do |f| %>
 
   <p> Выберите регион: <br/>
-  <%= f.collection_select :region_id, Region.all, :id, :name %>
+  <%= f.grouped_collection_select(:region_id, Country.all, :regions, :name, :id, :name) %>
   </p>
   <p>Название города: <br/><%= f.text_field :name %></p>
   <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
