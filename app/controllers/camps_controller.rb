@@ -4,6 +4,7 @@ class CampsController < ApplicationController
 
   def index
     @camp = Camp
+    @camp = @camp.where("city_id = ?", params[:id])       if params[:id]
     @camp = @camp.order("id")
   end
 
