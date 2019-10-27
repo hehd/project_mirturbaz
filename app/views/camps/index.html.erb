@@ -1,21 +1,32 @@
-<h2>Турбазы</h2>
+<div class="row">
+  <h2>Турбазы</h2>
+</div>
 <% if @camp.empty? %>
-  <b>Турбаз пока нет</b>
+  <div class="row">
+    <b>Турбаз пока нет</b>
+  </div>
 <% else %>
-  <table class="table table-sm table-hover">
-    <tr>
-      <th scope="col">Name</th>
-      <th></th>
-      <th></th>
-    </tr>
-    <% @camp.each do |i| %>
-      <tr data-path="<%= camp_path(i) %>">
-        <td><%= link_to i.name, camp_path(i) %></td>
-        <td><%= link_to "изменить", edit_camp_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
-    </tr>
+  <div class="row">
+    <table class="table table-sm table-hover table-borderless table-responsive">
+      <% n = nil %>
+      <% @camp.each do |i| %>
+        <%if n != i.city_id %>
+          <% n = i.city_id %>
+          <tr>
+            <td colspan="4"><%= link_to i.city.name, camps_path(:id => i.city_id) %></td>
+          </tr>
+        <% end %>
+        <tr data-path="<%= camp_path(i) %>">
+          <td></td>
+          <td><%= link_to i.name, camp_path(i) %></td>
+          <td><%= link_to "изменить", edit_camp_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
+          <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
       </tr>
-    <% end %>
+        </tr>
+      <% end %>
 <% end %>
-</table>
-<%= link_to "Добавить турбазу", new_camp_path(), class: "btn btn-outline-primary btn-sm" %>
+  </table>
+</div>
+<div class="row">
+  <%= link_to "Добавить турбазу", new_camp_path(), class: "btn btn-outline-primary btn-sm" %>
+</div>

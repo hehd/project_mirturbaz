@@ -1,20 +1,31 @@
-<h2>Регионы</h2>
+<div class="row">
+  <h2>Регионы</h2>
+</div>
 <% if @region.empty? %>
-  <b>Регионов пока нет</b>
+  <div class="row">
+    <b>Регионов пока нет</b>
+  </div>
 <% else %>
-  <table class="table table-sm table-hover">
-    <tr>
-      <th scope="col">Name</th>
-      <th ></th>
-      <th ></th>
-    </tr>
-    <% @region.each do |i| %>
-      <tr data-path="<%= region_path(i) %>">
-        <td><%= link_to i.name, region_path(i) %></td>
-        <td><%= link_to "Изменить", edit_region_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
-      </tr>
-    <% end %>
-<% end %>
-</table>
-<%= link_to "Добавить регион", new_region_path(), class: "btn btn-outline-primary btn-sm" %>
+<div class="row">
+  <table class="table table-sm table-hover table-borderless table-responsive">
+        <% n = 0 %>
+      <% @region.each do |i| %>
+        <%if n != i.country_id %>
+          <% n = i.country_id %>
+        <tr>
+          <td colspan="4"><%= link_to i.country.name, regions_path(:id => i.country_id) %></td>
+        </tr>
+        <% end %>
+        <tr data-path="<%= region_path(i) %>">
+          <td></td>
+          <td><%= link_to i.name, cities_path(:id => i.id) %></td>
+          <td><%= link_to "Изменить", edit_region_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
+          <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
+        </tr>
+      <% end %>
+  <% end %>
+  </table>
+</div>
+<div class="row">
+  <%= link_to "Добавить регион", new_region_path(), class: "btn btn-outline-primary btn-sm" %>
+</div>
