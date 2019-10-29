@@ -1,1 +1,21 @@
-<h2><%= @camp.name %></h2>
+<div class="row">
+  <h2><%= @camp.name %></h2>
+</div>
+<div class="row">
+  <p>
+    <%= @camp.city.region.country.name %>,
+    <%= @camp.city.region.name %>,
+    <%= @camp.city.name %>
+  </p>
+  </br></br></br>
+</div>
+
+<div class="row">
+  <p><b>Описание:</b></p>
+  <p><%= @camp.description %></p>
+</div>
+
+<div class="row">
+  <p><b>Цена: </b></p>
+  <p><%= @camp.price %> руб./сутки</p>
+</div>
