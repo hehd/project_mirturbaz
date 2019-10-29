@@ -7,25 +7,31 @@
   </div>
 <% else %>
   <div class="row">
-    <table class="table table-sm table-hover table-borderless table-responsive">
-      <% n = 0 %>
+    <table class="table table-sm table-hover table-responsive">
+      <thead>
+      <tr>
+        <th>Город</th>
+        <th>Регион</th>
+        <th>Страна</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
       <% @city.each do |i| %>
-        <%if n != i.region_id %>
-          <% n = i.region_id %>
-          <tr>
-            <td colspan="4"><%= link_to i.region.name, cities_path(:id => i.region_id) %></td>
-          </tr>
-        <% end %>
       <tr data-path="<%= city_path(i) %>">
-        <td></td>
         <td><%= link_to i.name, camps_path(:id => i.id) %></td>
+        <td><%= link_to i.region.name, cities_path(:id => i.region_id) %></td>
+        <td><%= link_to i.region.country.name, regions_path(:id => i.region.country_id) %></td>
         <td><%= link_to "изменить", edit_city_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
         <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
       </tr>
       <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
-  </table>
-</div>
+
 <div class="row">
-  <%= link_to "Добавить город", new_city_path(), class: "btn btn-outline-primary btn-sm" %>
+  <%= link_to "Добавить город", new_city_path(), class: "btn btn-outline-primary btn-sm mb-lg-3 mb-xs-2" %>
 </div>

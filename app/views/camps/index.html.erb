@@ -7,26 +7,34 @@
   </div>
 <% else %>
   <div class="row">
-    <table class="table table-sm table-hover table-borderless table-responsive">
-      <% n = nil %>
+    <table class="table table-sm table-hover table-responsive">
+      <thead>
+      <tr>
+        <th>Турбаза</th>
+        <th>Город</th>
+        <th>Регион</th>
+        <th>Страна</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
       <% @camp.each do |i| %>
-        <%if n != i.city_id %>
-          <% n = i.city_id %>
-          <tr>
-            <td colspan="4"><%= link_to i.city.name, camps_path(:id => i.city_id) %></td>
-          </tr>
-        <% end %>
         <tr data-path="<%= camp_path(i) %>">
-          <td></td>
           <td><%= link_to i.name, camp_path(i) %></td>
+          <td><%= link_to i.city.name, camps_path(:id => i.city_id) %></td>
+          <td><%= link_to i.city.region.name, cities_path(:id => i.city.region_id) %></td>
+          <td><%= link_to i.city.region.country.name, regions_path(:id => i.city.region.country_id) %></td>
           <td><%= link_to "изменить", edit_camp_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
           <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
       </tr>
         </tr>
       <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
-  </table>
-</div>
+
 <div class="row">
-  <%= link_to "Добавить турбазу", new_camp_path(), class: "btn btn-outline-primary btn-sm" %>
+  <%= link_to "Добавить турбазу", new_camp_path(), class: "btn btn-outline-primary btn-sm mb-lg-3 mb-xs-2" %>
 </div>

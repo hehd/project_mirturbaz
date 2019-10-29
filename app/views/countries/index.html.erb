@@ -7,19 +7,18 @@
   </div>
 <% else %>
 <div class="row">
-  <table class="table table-sm table-hover table-borderless table-responsive">
-    <tbody>
+  <table class="table table-sm table-hover table-responsive">
     <% @country.each do |i| %>
-      <tr data-path="<%= country_path(i) %>">
-        <td><%= link_to i.name, regions_path(:id => i.id) %></td>
-        <td><%= link_to "изменить", edit_country_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
-      </tr>
+    <tr data-path="<%= country_path(i) %>">
+      <td><%= link_to i.name, regions_path(:id => i.id) %></td>
+      <td><%= link_to "изменить", edit_country_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
+      <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
+    </tr>
     <% end %>
-<% end %>
-    </tbody>
   </table>
 </div>
+<% end %>
+
 <div class="row">
-  <%= link_to "Добавить страну", new_country_path(), class: "btn btn-outline-primary btn-sm" %>
+  <%= link_to "Добавить страну", new_country_path(), class: "btn btn-outline-primary btn-sm mb-lg-3 mb-xs-2" %>
 </div>
