@@ -5,7 +5,7 @@
   <p> Выберите регион: <br/>
   <%= f.grouped_collection_select(:region_id, Country.all, :regions, :name, :id, :name) %>
   </p>
-  <p>Название города: <br/><%= f.text_field :name %></p>
+  <p>Название города: <br/><%= f.text_field :name, title: "Напишите название города" %></p>
   <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
 
 <% end %>

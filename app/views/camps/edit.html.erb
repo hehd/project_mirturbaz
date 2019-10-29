@@ -3,9 +3,9 @@
 <%= form_with model: @camp do |f| %>
 
   <p> Выберите город: <br/>
-  <%= f.collection_select :city_id, City.all, :id, :name %>
+    <%= f.grouped_collection_select(:city_id, Region.all, :cities, :name, :id, :name) %>
   </p>
-  <p>Название турбазы: <br/><%= f.text_field :name %></p>
+  <p>Название турбазы: <br/><%= f.text_field :name, title: "Напишите название турбазы" %></p>
   <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
 
 <% end %>
