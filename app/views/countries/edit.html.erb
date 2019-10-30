@@ -2,7 +2,6 @@
 
 <%= form_with model: @country do |f| %>
 
-  <p>Название страны: <br/><%= f.text_field :name, title: "Напишите название страны" %></p>
-  <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
+  <%= render partial: "form", locals: { f: f } %>
 
 <% end %>
