@@ -1,27 +1,36 @@
 <div class="row">
   <div class="col-lg-4">
-    <p> Выберите город: <br/>
-      <%= f.grouped_collection_select(:city_id, Region.all, :cities, :name, :id, :name, class: "form-control") %>
-    </p>
+    <div class="form-group">
+      <%= f.label :city_id, "Выберите город:" %> <br/>
+      <%= f.grouped_collection_select(:city_id, Region.all, :cities, :name, :id, :name) %>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-4">
-    <p>Название турбазы: <br/><%= f.text_field :name, title: "Напишите название турбазы", class: "form-control" %></p>
+    <div class="form-group">
+      <%= f.label :name, "Название турбазы:" %>
+      <%= f.text_field :name, title: "Допустимы русские и латинские символы, тире, апостроф, пробел", placeholder: " ",
+                              class: "form-control", required: true, pattern: "[A-Za-zА-Яа-я' -]+" %>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-4">
-    <p>Описание турбазы: <br/><%= f.text_area :description, title: "Напишите описание", class: "form-control" %></p>
+    <div class="form-group">
+      <%= f.label :description, "Описание турбазы:" %>
+      <%= f.text_area :description, title: "Напишите описание", class: "form-control" %>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-lg-4">
-    <p>Цена, руб./сутки: <br/><%= f.text_field :price, title: "Напишите цену проживания в сутки" , class: "form-control" %></p>
+    <div class="form-group">
+      <%= f.label :price, "Цена, руб./сутки:" %>
+      <%= f.text_field :price, title: "Напишите цену проживания в сутки в целочисленном формате", placeholder: " ",
+                               class: "form-control", required: true, pattern: "[1-9][0-9]*" %>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-lg-2">
-    <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
-  </div>
-</div>
+
+    <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %>

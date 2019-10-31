@@ -1,5 +1,19 @@
-  <p> Выберите регион: <br/>
-  <%= f.grouped_collection_select(:region_id, Country.all, :regions, :name, :id, :name) %>
-  </p>
-  <p>Название города: <br/><%= f.text_field :name, title: "Напишите название города", required: true %></p>
-  <p> <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %></p>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="form-group">
+      <%= f.label :region_id, "Выберите регион:" %> <br/>
+      <%= f.grouped_collection_select(:region_id, Country.all, :regions, :name, :id, :name) %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="form-group">
+      <%= f.label :name, "Название города:" %>
+      <%= f.text_field :name, title: "Допустимы русские и латинские символы, тире, апостроф, пробел", placeholder: " ",
+                              class: "form-control", required: true, pattern: "[A-Za-zА-Яа-я' -]+" %>
+    </div>
+  </div>
+</div>
+
+    <%= f.submit "Сохранить", class: "btn btn-outline-success btn-sm" %>
