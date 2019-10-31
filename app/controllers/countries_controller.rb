@@ -16,7 +16,7 @@ class CountriesController < ApplicationController
       flash[:success] = "Страна успешно добавлена!"
       redirect_to country_path(@country)
     else
-      flash[:error] = "Такая страна уже есть!!!"
+      flash.now[:error] = "Такая страна уже есть!!!"
       render "new"
     end
   end
