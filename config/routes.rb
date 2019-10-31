@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "country#index"
+  root "countries#index"
   resources :countries
   resources :regions
   resources :cities
