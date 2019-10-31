@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "country#index"
   resources :countries
   resources :regions
   resources :cities
