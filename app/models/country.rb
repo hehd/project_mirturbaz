@@ -3,7 +3,7 @@ class Country < ApplicationRecord
   validates :name, { presence: true,
                      uniqueness: true,
                      length: { maximum: 50 },
-                     format: { with: /\A[a-zA-Z]+\z/,
+                     format: { with: /\A[a-zA-Z0-9а-яА-Я'\s-]+\z/,
                                message: "only allows letters"
                      }
   }
