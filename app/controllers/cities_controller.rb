@@ -4,8 +4,8 @@ class CitiesController < ApplicationController
 
   def index
     @city = City
+    @city = @city.includes(:region => :country).order("region_id, id")
     @city = @city.where("region_id = ?", params[:id])       if params[:id]
-    @city = @city.order("id")
   end
 
   def show

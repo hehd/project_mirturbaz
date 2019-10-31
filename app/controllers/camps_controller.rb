@@ -4,8 +4,8 @@ class CampsController < ApplicationController
 
   def index
     @camp = Camp
+    @camp = @camp.includes(city: [ region: :country ]).order("city_id, id")
     @camp = @camp.where("city_id = ?", params[:id])       if params[:id]
-    @camp = @camp.order("id")
   end
 
   def show

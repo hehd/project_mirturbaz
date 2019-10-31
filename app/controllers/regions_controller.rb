@@ -4,8 +4,8 @@ class RegionsController < ApplicationController
 
   def index
     @region = Region
+    @region = @region.includes(:country).order("country_id, id")
     @region = @region.where("country_id = ?", params[:id])       if params[:id]
-    @region = @region.order("id")
   end
 
   def show
