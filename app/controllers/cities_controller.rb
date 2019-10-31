@@ -14,8 +14,10 @@ class CitiesController < ApplicationController
   def create
     @city = City.create(params[:city].permit!)
     if @city.errors.empty?
+      flash[:success] = "Город успешно добавлен!"
       redirect_to city_path(@city)
     else
+      flash.now[:error] = "Такой город уже есть!!!"
       render "new"
     end
   end
@@ -30,15 +32,17 @@ class CitiesController < ApplicationController
   def update
     @city.update_attributes(params[:city].permit!)
     if @city.errors.empty?
+      flash[:success] = "Город успешно обновлен!"
       redirect_to city_path(@city)
     else
+      flash.now[:error] = "Такой город уже есть!!!"
       render "edit"
     end
   end
 
   def destroy
     @city.destroy
-    render json: { success: true }
+    redirect_to action: "index"
   end
 
   private

@@ -14,8 +14,10 @@ class RegionsController < ApplicationController
   def create
     @region = Region.create(params[:region].permit!)
     if @region.errors.empty?
+      flash[:success] = "Регион успешно добавлен!"
       redirect_to region_path(@region)
     else
+      flash.now[:error] = "Такой регион уже есть!!!"
       render "new"
     end
   end
@@ -30,15 +32,17 @@ class RegionsController < ApplicationController
   def update
     @region.update_attributes(params[:region].permit!)
     if @region.errors.empty?
+      flash[:success] = "Регион успешно обновлен!"
       redirect_to region_path(@region)
     else
+      flash.now[:error] = "Такой регион уже есть!!!"
       render "edit"
     end
   end
 
   def destroy
     @region.destroy
-    render json: { success: true }
+    redirect_to action: "index"
   end
 
   private

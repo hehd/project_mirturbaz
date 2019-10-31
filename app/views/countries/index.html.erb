@@ -12,7 +12,9 @@
     <tr data-path="<%= country_path(i) %>">
       <td><%= link_to i.name, regions_path(:id => i.id) %></td>
       <td><%= link_to "изменить", edit_country_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
-      <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
+      <td><%= link_to "удалить", country_path(i), method: :delete, data: { confirm: "Точно удалить?" },
+                                                  class: "btn btn-outline-danger btn-sm" %>
+      </td>
     </tr>
     <% end %>
   </table>

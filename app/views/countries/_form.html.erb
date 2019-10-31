@@ -2,7 +2,7 @@
   <div class="col-lg-3">
     <div class="form-group">
       <%= f.label :name, "Название страны:" %>
-      <%= f.text_field :name, title: "Допустимы русские и латинские символы, тире, апостроф, пробел",
+      <%= f.text_field :name, title: "Допустимы русские и латинские символы, тире, апостроф, пробел", class: "form-control",
                               placeholder: " ", required: true, pattern: "[A-Za-zА-Яа-я' -]+" %>
     </div>
    </div>

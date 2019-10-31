@@ -13,8 +13,10 @@ class CountriesController < ApplicationController
   def create
     @country = Country.create(params[:country].permit!)
     if @country.errors.empty?
+      flash[:success] = "Страна успешно добавлена!"
       redirect_to country_path(@country)
     else
+      flash[:error] = "Такая страна уже есть!!!"
       render "new"
     end
   end
@@ -29,6 +31,7 @@ class CountriesController < ApplicationController
   def update
     @country.update_attributes(params[:country].permit!)
     if @country.errors.empty?
+      flash[:success] = "Страна успешно обновлена!"
       redirect_to country_path(@country)
     else
       render "edit"
@@ -37,7 +40,7 @@ class CountriesController < ApplicationController
 
   def destroy
     @country.destroy
-    render json: { success: true }
+    redirect_to action: "index"
   end
 
   private

@@ -30,6 +30,11 @@
     </nav>
 
     <div class="container">
+      <p style="color: red;"><%= flash[:error] %></p>
+      <p style="color: green;"><%= flash[:success] %></p>
+    </div>
+    
+    <div class="container">
       <%= yield %>
     </div>
 

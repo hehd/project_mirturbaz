@@ -2,12 +2,6 @@
   <h3>Добавление новой турбазы</h3>
 </div>
 
-<% if @camp.errors.any? %>
-  <% @camp.errors.full_messages.each do |msg| %>
-    <div class="alert alert-danger"><%= msg %></div>
-  <% end %>
-<% end %>
-
 <%= form_with model: @camp do |f| %>
 
 <%= render partial: "form", locals: { f: f } %>

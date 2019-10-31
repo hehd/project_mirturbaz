@@ -14,9 +14,11 @@ class CampsController < ApplicationController
   def create
     @camp = Camp.create(params[:camp].permit!)
     if @camp.errors.empty?
+      flash[:success] = "Турбаза успешно добавлена!"
       redirect_to camp_path(@camp)
     else
-      render "new"
+      flash.now[:error] = "Такая турбаза уже есть!!!"
+      render action: "new"
     end
   end
 
@@ -30,15 +32,17 @@ class CampsController < ApplicationController
   def update
     @camp.update_attributes(params[:camp].permit!)
     if @camp.errors.empty?
+      flash[:success] = "Турбаза успешно обновлена!"
       redirect_to camp_path(@camp)
     else
-      render "edit"
+      flash.now[:error] = "Такая турбаза уже есть!!!"
+      render action: "edit"
     end
   end
 
   def destroy
     @camp.destroy
-    render json: { success: true }
+    redirect_to action: "index"
   end
 
   private

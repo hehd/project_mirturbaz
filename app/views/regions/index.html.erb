@@ -22,7 +22,9 @@
         <td><%= link_to i.name, cities_path(:id => i.id) %></td>
         <td><%= link_to i.country.name, regions_path(:id => i.country_id) %></td>
         <td><%= link_to "Изменить", edit_region_path(i), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><button type="button" class="btn btn-outline-danger deleteAction btn-sm">Удалить</button></td>
+        <td><%= link_to "удалить", region_path(i), method: :delete, data: { confirm: "Точно удалить?" },
+                        class: "btn btn-outline-danger btn-sm" %>
+        </td>
       </tr>
       <% end %>
     </tbody>
